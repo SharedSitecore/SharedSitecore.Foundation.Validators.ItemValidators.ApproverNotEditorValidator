@@ -1,0 +1,2 @@
+# SharedSitecore.Foundation.Validators.ItemValidators.ApproverNotEditorValidator
+SharedSitecore.Foundation.Validators.ItemValidators.ApproverNotEditorValidator - Prevent Self Approval in Workflow
