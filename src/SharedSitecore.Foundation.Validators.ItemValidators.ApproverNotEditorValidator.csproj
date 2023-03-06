@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net471</TargetFramework>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>0.0.1</Version>
+		<PackageId>SharedSitecore.Foundation.Validators.ItemValidators.ApproverNotEditorValidator</PackageId>
+		<Description>SharedSitecore.Foundation.Validators.ItemValidators.ApproverNotEditorValidator</Description>
+		<Copyright>Copyright ©  2020</Copyright>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/SharedSitecore/SharedSitecore.Foundation.Validators.ItemValidators.ApproverNotEditorValidator</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/SharedSitecore/SharedSitecore.Foundation.Validators.ItemValidators.ApproverNotEditorValidator</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>sitecore powershell extension execute script</PackageTags>
+		<Company>Sitecore Dave, Radical Dave, David Walker</Company>
+		<Authors>Sitecore Dave, Radical Dave, David Walker</Authors>
+		<PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Sitecore.ExperienceForms.Mvc" Version="9.3.0" />
+	  <PackageReference Include="Sitecore.Kernel" Version="9.3.0" />
+	</ItemGroup>
+	
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="IF &quot;$(ConfigurationName)&quot; == &quot;Debug-Sitecore&quot; (Powershell.exe -ExecutionPolicy Unrestricted -file D:\repos\SharedSitecore\SharedSitecore.DeploySitecoreProject\Deploy-SitecoreProject.ps1 $(ProjectDir))" />
+	</Target>
+
+</Project>
